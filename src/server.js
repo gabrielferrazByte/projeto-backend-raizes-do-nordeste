@@ -1,3 +1,4 @@
+// Importa a aplicação criada no app.js
 const app = require('./app');
 
 app.listen(3000, () => {
