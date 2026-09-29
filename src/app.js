@@ -10,6 +10,9 @@ app.use(express.json());
 // Importa as rotas de autenticação
 const authRoutes = require('./routes/authRoutes');
 
+// Importa middleware de proteção
+const authMiddleware = require('./middlewares/authMiddleware');
+
 // Todas as rotas de autenticação terão o prefixo /auth
 app.use('/auth', authRoutes);
 
@@ -20,19 +23,19 @@ app.get('/', (req, res) => {
   });
 });
 
-// Exporta a aplicação para ser utilizada pelo server.js
-module.exports = app;
-
-const authMiddleware = require('./middlewares/authMiddleware');
-
+// Rota protegida por JWT
 app.get(
   '/perfil',
   authMiddleware,
   (req, res) => {
-
+    
+    // Retorna informações do usuário autenticado
     res.json({
       usuario: req.usuario
     });
 
   }
 );
+
+// Exporta a aplicação para ser utilizada pelo server.js
+module.exports = app;
