@@ -7,6 +7,12 @@ const app = express();
 // Permite receber e interpretar JSON nas requisições
 app.use(express.json());
 
+// Importa as rotas de autenticação
+const authRoutes = require('./routes/authRoutes');
+
+// Todas as rotas de autenticação terão o prefixo /auth
+app.use('/auth', authRoutes);
+
 // Rota principal para testar se a API está funcionando
 app.get('/', (req, res) => {
   res.json({
@@ -16,3 +22,17 @@ app.get('/', (req, res) => {
 
 // Exporta a aplicação para ser utilizada pelo server.js
 module.exports = app;
+
+const authMiddleware = require('./middlewares/authMiddleware');
+
+app.get(
+  '/perfil',
+  authMiddleware,
+  (req, res) => {
+
+    res.json({
+      usuario: req.usuario
+    });
+
+  }
+);
