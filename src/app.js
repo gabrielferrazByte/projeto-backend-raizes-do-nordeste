@@ -13,6 +13,13 @@ const authRoutes = require('./routes/authRoutes');
 // Importa middleware de proteção
 const authMiddleware = require('./middlewares/authMiddleware');
 
+// Importa as rotas de produtos
+const produtoRoutes =
+require('./routes/produtoRoutes');
+
+// Todas as rotas de produtos terão o prefixo /produtos
+app.use('/produtos', produtoRoutes);
+
 // Todas as rotas de autenticação terão o prefixo /auth
 app.use('/auth', authRoutes);
 
