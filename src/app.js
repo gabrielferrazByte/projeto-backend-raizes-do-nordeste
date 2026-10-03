@@ -17,11 +17,17 @@ const authMiddleware = require('./middlewares/authMiddleware');
 const produtoRoutes =
 require('./routes/produtoRoutes');
 
-// Todas as rotas de produtos terão o prefixo /produtos
-app.use('/produtos', produtoRoutes);
+const estoqueRoutes =
+require('./routes/estoqueRoutes');
 
 // Todas as rotas de autenticação terão o prefixo /auth
 app.use('/auth', authRoutes);
+
+// Todas as rotas de produtos terão o prefixo /produtos
+app.use('/produtos', produtoRoutes);
+
+// Todas as rotas de estoque terão o prefixo /estoque
+app.use('/estoque', estoqueRoutes);
 
 // Rota principal para testar se a API está funcionando
 app.get('/', (req, res) => {
