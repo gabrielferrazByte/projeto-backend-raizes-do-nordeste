@@ -35,7 +35,6 @@ exports.listar = async (req, res) => {
 // ======================
 // CADASTRAR PRODUTO
 // ======================
-
 // Cria um novo produto no banco de dados
 exports.criar = async (req, res) => {
 
@@ -74,7 +73,6 @@ exports.criar = async (req, res) => {
 // ======================
 // ATUALIZAR PRODUTO
 // ======================
-
 // Altera os dados de um produto existente
 exports.atualizar = async (req, res) => {
 
@@ -119,7 +117,6 @@ exports.atualizar = async (req, res) => {
 // ======================
 // EXCLUIR PRODUTO
 // ======================
-
 // Remove um produto da base de dados
 exports.excluir = async (req, res) => {
 

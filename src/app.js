@@ -20,6 +20,9 @@ require('./routes/produtoRoutes');
 const estoqueRoutes =
 require('./routes/estoqueRoutes');
 
+const pedidoRoutes =
+require('./routes/pedidoRoutes');
+
 // Todas as rotas de autenticação terão o prefixo /auth
 app.use('/auth', authRoutes);
 
@@ -28,6 +31,8 @@ app.use('/produtos', produtoRoutes);
 
 // Todas as rotas de estoque terão o prefixo /estoque
 app.use('/estoque', estoqueRoutes);
+
+app.use('/pedidos', pedidoRoutes);
 
 // Rota principal para testar se a API está funcionando
 app.get('/', (req, res) => {
