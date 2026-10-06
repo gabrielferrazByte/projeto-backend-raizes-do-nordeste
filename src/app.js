@@ -29,6 +29,10 @@ require('./routes/pedidoRoutes');
 const pagamentoRoutes =
 require('./routes/pagamentoRoutes');
 
+// Importa as rotas de fidelidade
+const fidelidadeRoutes =
+require('./routes/fidelidadeRoutes');
+
 // Todas as rotas de autenticação terão o prefixo /auth
 app.use('/auth', authRoutes);
 
@@ -43,6 +47,9 @@ app.use('/pedidos', pedidoRoutes);
 
 // Todas as rotas de pagamentos terão o prefixo /pagamentos
 app.use('/pagamentos', pagamentoRoutes);
+
+// Todas as rotas de fidelidade terão o prefixo /fidelidade
+app.use('/fidelidade', fidelidadeRoutes);
 
 // Rota principal para testar se a API está funcionando
 app.get('/', (req, res) => {
