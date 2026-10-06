@@ -33,6 +33,10 @@ require('./routes/pagamentoRoutes');
 const fidelidadeRoutes =
 require('./routes/fidelidadeRoutes');
 
+// Importa a configuração Swagger
+const {swaggerUi, swaggerDocument} = 
+require('./docs/swagger');
+
 // Todas as rotas de autenticação terão o prefixo /auth
 app.use('/auth', authRoutes);
 
@@ -50,6 +54,10 @@ app.use('/pagamentos', pagamentoRoutes);
 
 // Todas as rotas de fidelidade terão o prefixo /fidelidade
 app.use('/fidelidade', fidelidadeRoutes);
+
+// Cria a rota da documentação. A documentação ficará disponível em:
+// http://localhost:3000/api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Rota principal para testar se a API está funcionando
 app.get('/', (req, res) => {
