@@ -86,6 +86,61 @@ const swaggerDocument = {
 
     },
 
+    "/produtos/{id}": {
+
+      put: {
+        tags: ["Produtos"],
+
+        summary: "Atualizar produto"
+      },
+
+      delete: {
+        tags: ["Produtos"],
+        
+        summary: "Remover produto"
+      }
+
+    },
+
+    // ==================================================
+    // ESTOQUE
+    // ==================================================
+    "/estoque": {
+
+      get: {
+
+        tags: ["Estoque"],
+
+        summary: "Listar estoque"
+
+      }
+
+    },
+
+    "/estoque/entrada": {
+
+      post: {
+
+        tags: ["Estoque"],
+
+        summary: "Adicionar estoque"
+
+      }
+
+    },
+
+    "/estoque/saida": {
+
+      post: {
+
+        tags: ["Estoque"],
+
+        summary: "Remover estoque"
+
+      }
+
+    },
+
     // ===========================
     // PEDIDOS
     // ===========================
@@ -109,6 +164,30 @@ const swaggerDocument = {
 
     },
 
+    "/pedidos/{id}": {
+
+      get: {
+
+        tags: ["Pedidos"],
+
+        summary: "Buscar pedido por ID"
+
+      }
+
+    },
+
+    "/pedidos/{id}/status": {
+
+      patch: {
+
+        tags: ["Pedidos"],
+
+        summary: "Atualizar status do pedido"
+
+      }
+
+    },
+
     // ===========================
     // PAGAMENTOS
     // ===========================
@@ -118,7 +197,7 @@ const swaggerDocument = {
 
         tags: ["Pagamentos"],
 
-        summary: "Processar pagamento mock"
+        summary: "Processar pagamento mock",
 
       }
 
@@ -134,6 +213,30 @@ const swaggerDocument = {
         tags: ["Fidelidade"],
 
         summary: "Consultar pontos"
+
+      }
+
+    },
+
+    "/fidelidade/acumular": {
+
+      post: {
+
+        tags: ["Fidelidade"],
+
+        summary: "Acumular pontos"
+
+      }
+
+    },
+
+    "/fidelidade/resgatar": {
+
+      post: {
+
+        tags: ["Fidelidade"],
+
+        summary: "Resgatar pontos"
 
       }
 
