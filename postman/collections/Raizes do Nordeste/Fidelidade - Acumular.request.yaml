@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:3000/fidelidade/acumular
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"usuario_id\": 1,\r
+
+    \  \"pontos\": 50\r
+
+    }"
+order: 14000

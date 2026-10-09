@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost:3000/pagamentos
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"pedido_id\": 1,\r
+
+    \  \"metodo\": \"PIX\",\r
+
+    \  \"status\": \"APROVADO\"\r
+
+    }"
+order: 12000

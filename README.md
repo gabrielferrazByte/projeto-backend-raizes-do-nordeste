@@ -108,6 +108,11 @@ POST /fidelidade/acumular
 POST /fidelidade/resgatar
 ```
 
+## Testes
+
+Os testes dos endpoints foram realizados utilizando Postman
+e salvos na pasta docs em formato JSON.
+
 ## Autor
 
 Gabriel Ferraz Lima Freitas

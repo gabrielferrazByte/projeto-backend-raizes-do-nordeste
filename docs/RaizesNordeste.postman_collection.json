@@ -1,0 +1,356 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "RaizesNordeste.postman_collection",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "Auth - Register",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "senha": {
+                    "type": "string",
+                    "format": "color"
+                  },
+                  "perfil": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "nome": "Gabriel",
+                "email": "gabriel@gmail.com",
+                "senha": "123456",
+                "perfil": "CLIENTE"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Auth - Login",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "senha": {
+                    "type": "string",
+                    "format": "color"
+                  }
+                }
+              },
+              "example": {
+                "email": "gabriel@gmail.com",
+                "senha": "123456"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/perfil": {
+      "get": {
+        "summary": "Perfil",
+        "responses": {},
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/produtos": {
+      "post": {
+        "summary": "Produtos - Criar",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "descricao": {
+                    "type": "string"
+                  },
+                  "preco": {
+                    "type": "number"
+                  }
+                }
+              },
+              "example": {
+                "nome": "Acarajé Especial",
+                "descricao": "Acarajé tradicional",
+                "preco": 25.9
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Produtos - Listar",
+        "responses": {}
+      }
+    },
+    "/estoque/entrada": {
+      "post": {
+        "summary": "Estoque - Entrada",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "produto_id": {
+                    "type": "integer"
+                  },
+                  "unidade_id": {
+                    "type": "integer"
+                  },
+                  "quantidade": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "produto_id": 1,
+                "unidade_id": 1,
+                "quantidade": 25
+              }
+            }
+          }
+        }
+      }
+    },
+    "/estoque/saida": {
+      "post": {
+        "summary": "Estoque - Saída",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "produto_id": {
+                    "type": "integer"
+                  },
+                  "unidade_id": {
+                    "type": "integer"
+                  },
+                  "quantidade": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "produto_id": 1,
+                "unidade_id": 1,
+                "quantidade": 50
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pedidos": {
+      "post": {
+        "summary": "Pedido - Criar",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "usuario_id": {
+                    "type": "integer"
+                  },
+                  "unidade_id": {
+                    "type": "integer"
+                  },
+                  "canal_pedido": {
+                    "type": "string"
+                  },
+                  "valor_total": {
+                    "type": "number"
+                  }
+                }
+              },
+              "example": {
+                "usuario_id": 1,
+                "unidade_id": 1,
+                "canal_pedido": "APP",
+                "valor_total": 59.9
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Pedido - Listar",
+        "responses": {}
+      }
+    },
+    "/pedidos/1": {
+      "get": {
+        "summary": "Pedido - Buscar",
+        "responses": {}
+      }
+    },
+    "/pedidos/1/status": {
+      "patch": {
+        "summary": "Pedido - Alterar Status",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "status": "EM_PREPARO"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pagamentos": {
+      "post": {
+        "summary": "Pagamento - Processar",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pedido_id": {
+                    "type": "integer"
+                  },
+                  "metodo": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "pedido_id": 1,
+                "metodo": "PIX",
+                "status": "APROVADO"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fidelidade/1": {
+      "get": {
+        "summary": "Fidelidade - Consultar",
+        "responses": {}
+      }
+    },
+    "/fidelidade/acumular": {
+      "post": {
+        "summary": "Fidelidade - Acumular",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "usuario_id": {
+                    "type": "integer"
+                  },
+                  "pontos": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "usuario_id": 1,
+                "pontos": 50
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fidelidade/resgatar": {
+      "post": {
+        "summary": "Fidelidade - Resgatar",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "usuario_id": {
+                    "type": "integer"
+                  },
+                  "pontos": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "usuario_id": 1,
+                "pontos": 40
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

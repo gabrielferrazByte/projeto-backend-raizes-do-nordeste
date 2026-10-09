@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:3000/pedidos
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"usuario_id\": 1,\r
+
+    \  \"unidade_id\": 1,\r
+
+    \  \"canal_pedido\": \"APP\",\r
+
+    \  \"valor_total\": 59.90\r
+
+    }"
+order: 8000

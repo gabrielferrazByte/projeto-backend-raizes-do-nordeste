@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:3000/perfil
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_10f6}}"
+order: 3000

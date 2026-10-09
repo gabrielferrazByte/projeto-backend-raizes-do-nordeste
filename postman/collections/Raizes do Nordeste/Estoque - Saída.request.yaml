@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost:3000/estoque/saida
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"produto_id\": 1,\r
+
+    \  \"unidade_id\": 1,\r
+
+    \  \"quantidade\": 50\r
+
+    }"
+order: 7000
